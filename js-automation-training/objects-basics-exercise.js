@@ -30,9 +30,9 @@ console.log(`
     Adding tester...
     Changing status...    
     `);
-    
-    
-    console.log(`
+
+
+console.log(`
         Updated Test Case:
         {
     ID: ${testCase.id}
@@ -44,8 +44,8 @@ console.log(`
     Tester: ${testCase.tester}
     }
     `);
-    
-    
+
+
 console.log(`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Exercise 2: Test User Objects
@@ -53,19 +53,19 @@ console.log(`
 
 let testUsers = [
     {
-        username: "johndoe", 
+        username: "johndoe",
         password: "********",
         email: "johndoe@gmail.com",
         role: "admin",
     },
     {
-        username: "marksmith", 
+        username: "marksmith",
         password: "********",
         email: "marksmith@gmail.com",
         role: "user",
     },
     {
-        username: "paul", 
+        username: "paul",
         password: "********",
         email: "paul@gmail.com",
         role: "user",
@@ -85,11 +85,8 @@ for (testUser of testUsers) {
     Email: ${testUser.email}
     Role: ${testUser.role}
     `);
-    
+
 }
-
-
-
 
 
 
@@ -97,6 +94,81 @@ console.log(`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Exercise 3: Test Results Array
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
+
+let testResults = [
+    {
+        name: "✓ 1. Login Test",
+        result: "PASSED",
+        duration: 2.5,
+    },
+    {
+        name: "✗ 2. Logout Test",
+        result: "FAILED",
+        duration: 1.8,
+    },
+    {
+        name: "✓ 3. Search Test",
+        result: "PASSED",
+        duration: 3.2,
+    },
+    {
+        name: "⊘ 4. Checkout Test",
+        result: "SKIPPED",
+        duration: 0.0,
+    },
+    {
+        name: "✓ 5. Payment Test",
+        result: "PASSED",
+        duration: 2.1,
+    },
+]
+
+console.log(`Test Execution Report
+━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Test Results:`);
+
+
+for (let i = 0; i < testResults.length; i++) {
+    let tr = testResults[i];
+
+    console.log(`
+${tr.name}
+    Result: ${tr.result}
+    Duration: ${tr.duration}s
+    `)
+}
+
+let passedCount = 0;
+let failedCount = 0;
+let skippedCount = 0;
+let avg = 0;
+
+for (let i = 0; i < testResults.length; i++) {
+    if (testResults[i].result === "PASSED") passedCount++;
+    else if (testResults[i].result === "FAILED") failedCount++;
+    else skippedCount++;
+    } 
+
+console.log(`Statistics:
+━━━━━━━━━━━━━━━━━━━━━━━━━
+  Total tests: ${testResults.length}
+  Passed: ${passedCount} 
+  Failed: ${failedCount}
+  Skipped: ${skippedCount}
+  `)
+
+let totalDuration = testResults.reduce((sum, testResult) => sum + testResult.duration, 0);
+console.log("Total duration: " + totalDuration + "s");
+
+let avgDuration = totalDuration/testResults.length;
+console.log("Average Duration: " + avgDuration.toFixed(2) + "s");
+
+
+
+
+
+
 
 console.log(`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

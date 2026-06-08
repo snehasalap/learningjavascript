@@ -18,7 +18,7 @@ S
 
 ### Part 1: Basic Functions
 
-Create `basic-functions.js` with these functions:
+Create ` ` with these functions:
 
 ```javascript
 // Function to generate email
